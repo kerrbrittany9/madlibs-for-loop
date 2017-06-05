@@ -1,18 +1,13 @@
 $(document).ready(function() {
-  $("#formOne").submit(function(event) {
-    var businessNameInput = $("input#businessName").val();
-    var contactNameInput = $("input#contactName").val();
-    var addressInput = $("input#address").val();
-    var emailInput = $("input#email").val();
-    var subjectInput = $("input#subject").val();
+  $("#blanks").submit(function(event) {
+    var blanks = ["person1", "person2", "animal", "exclamation", "verb", "noun"];
 
-    $(".contactName").text(contactNameInput);
-    $(".businessName").text(businessNameInput);
-    $(".email").text(emailInput);
-    $(".address").text(addressInput);
-    $(".subject").text(subjectInput);
+    blanks.forEach(function(blank) {
+      var userInput = $("input#" + blank).val();
+      $("." + blank).text(userInput);
+    });
 
-    $("#letter").show();
+    $("#story").show();
 
     event.preventDefault();
   });
